@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zaccarie — Cours particuliers de mathématiques pour collégiens et lycéens. À domicile ou en ligne.">
+
+    <title>{% block title %}Zaccarie — Tutorat en Mathématiques{% endblock %}</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary:       { DEFAULT: '#1B2A4A', light: '#243656' },
+                        accent:        { DEFAULT: '#4A90D9', hover: '#3A7BC8', light: '#E8F0FE' },
+                        surface:       '#F7F9FC',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="font-sans text-gray-800 bg-white antialiased">
+
+    <nav class="fixed top-0 w-full bg-primary z-50 shadow-md transition-all duration-300" id="main-navbar">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="flex items-center justify-between h-16">
+                <a href="/#accueil" class="flex items-center text-white font-bold text-xl tracking-tight">
+                    <i class="fas fa-square-root-variable mr-2 text-accent"></i>Zaccarie
+                </a>
+
+                <div class="hidden lg:flex items-center gap-1">
+                    <a href="/#accueil" data-section="accueil"
+                       class="nav-link px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 text-gray-300 hover:bg-accent/10 hover:text-accent">
+                        Accueil
+                    </a>
+                    <a href="/#a-propos" data-section="a-propos"
+                       class="nav-link px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 text-gray-300 hover:bg-accent/10 hover:text-accent">
+                        À propos
+                    </a>
+                    <a href="/#tarifs" data-section="tarifs"
+                       class="nav-link px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 text-gray-300 hover:bg-accent/10 hover:text-accent">
+                        Tarifs
+                    </a>
+                    <a href="#" onclick="toggleContactWidget(event)"
+                       class="ml-3 px-4 py-2 bg-accent hover:bg-accent-hover text-white text-sm font-semibold rounded-lg
+                              transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg">
+                        <i class="fas fa-envelope mr-1"></i>Me contacter
+                    </a>
+                </div>
+
+                <button id="menu-toggle" class="lg:hidden text-white focus:outline-none" aria-label="Menu">
+                    <i class="fas fa-bars text-xl" id="menu-icon"></i>
+                </button>
+            </div>
+
+            <div id="mobile-menu" class="lg:hidden hidden pb-4 border-t border-white/10 mt-1">
+                <div class="flex flex-col gap-1 pt-3">
+                    <a href="/#accueil" data-section="accueil"
+                       class="nav-link px-4 py-2.5 rounded-lg text-sm font-medium transition-all text-gray-300 hover:bg-accent/10 hover:text-accent">
+                        <i class="fas fa-home mr-2 w-5"></i>Accueil
+                    </a>
+                    <a href="/#a-propos" data-section="a-propos"
+                       class="nav-link px-4 py-2.5 rounded-lg text-sm font-medium transition-all text-gray-300 hover:bg-accent/10 hover:text-accent">
+                        <i class="fas fa-user mr-2 w-5"></i>À propos
+                    </a>
+                    <a href="/#tarifs" data-section="tarifs"
+                       class="nav-link px-4 py-2.5 rounded-lg text-sm font-medium transition-all text-gray-300 hover:bg-accent/10 hover:text-accent">
+                        <i class="fas fa-tag mr-2 w-5"></i>Tarifs
+                    </a>
+                    <a href="#" onclick="toggleContactWidget(event)"
+                       class="mt-2 mx-4 py-2.5 bg-accent hover:bg-accent-hover text-white text-sm font-semibold
+                              rounded-lg text-center transition-all">
+                        <i class="fas fa-envelope mr-1"></i>Me contacter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="fixed top-20 left-1/2 -translate-x-1/2 z-50 w-full max-w-xl px-4">
+                {% for category, message in messages %}
+                    <div class="flash-alert flex items-center justify-between p-4 rounded-xl mb-3 shadow-lg
+                                {% if category == 'success' %}bg-green-50 text-green-800 border border-green-200{% else %}bg-red-50 text-red-800 border border-red-200{% endif %}">
+                        <div class="flex items-center gap-2">
+                            <i class="fas {% if category == 'success' %}fa-check-circle{% else %}fa-exclamation-circle{% endif %}"></i>
+                            <span>{{ message }}</span>
+                        </div>
+                        <button onclick="this.parentElement.remove()" class="text-gray-400 hover:text-gray-600 ml-4">
+                            <i class="fas fa-xmark"></i>
+                        </button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="bg-primary text-white/80">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div>
+                    <h5 class="text-white font-bold text-xl mb-3">
+                        <i class="fas fa-square-root-variable mr-2 text-accent"></i>Zaccarie
+                    </h5>
+                    <p class="text-white/60 text-sm leading-relaxed">
+                        Tutorat particulier en mathématiques<br>
+                        Collège & Lycée — 6ème à Terminale
+                    </p>
+                </div>
+                <div>
+                    <h6 class="text-white font-semibold mb-4">Navigation</h6>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/#accueil" class="text-white/60 hover:text-accent hover:pl-1 transition-all duration-200">Accueil</a></li>
+                        <li><a href="/#a-propos" class="text-white/60 hover:text-accent hover:pl-1 transition-all duration-200">À propos</a></li>
+                        <li><a href="/#tarifs" class="text-white/60 hover:text-accent hover:pl-1 transition-all duration-200">Tarifs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="text-white font-semibold mb-4">Formats de cours</h6>
+                    <ul class="space-y-2 text-sm text-white/60">
+                        <li><i class="fas fa-house mr-2"></i>À domicile</li>
+                        <li><i class="fas fa-laptop mr-2"></i>En ligne</li>
+                    </ul>
+                    <p class="text-white/40 text-sm mt-4">
+                        <i class="fas fa-euro-sign mr-1"></i>35 € / heure — Tarif unique
+                    </p>
+                </div>
+            </div>
+            <hr class="border-white/10 my-8">
+            <p class="text-center text-white/40 text-sm">
+                &copy; 2026 Zaccarie — Tutorat particulier en mathématiques. Tous droits réservés.
+            </p>
+        </div>
+    </footer>
+
+    {% block contact_widget %}{% endblock %}
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    {% if scroll_to %}
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var target = document.getElementById("{{ scroll_to }}");
+            if (target) {
+                setTimeout(function() {
+                    target.scrollIntoView({ behavior: "smooth", block: "start" });
+                }, 150);
+            }
+        });
+    </script>
+    {% endif %}
+</body>
+</html>

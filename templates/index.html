@@ -1,0 +1,460 @@
+{% extends "base.html" %}
+
+{% block title %}Zaccarie — Cours particuliers de mathématiques{% endblock %}
+
+{% block content %}
+
+<section id="accueil" class="bg-gradient-to-br from-primary to-primary-light text-white pt-28 pb-20 lg:pt-32 lg:pb-24 min-h-[90vh] flex items-center">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+            <div class="lg:w-1/2 text-center lg:text-left">
+                <span class="inline-block bg-accent-light text-accent text-sm font-semibold px-4 py-1.5 rounded-full mb-5">
+                    <i class="fas fa-graduation-cap mr-1"></i> Collège & Lycée
+                </span>
+                <h1 class="text-4xl lg:text-5xl font-extrabold leading-tight mb-5">
+                    Progressez en <span class="text-accent">mathématiques</span> à votre rythme
+                </h1>
+                <p class="text-lg text-white/80 leading-relaxed mb-8">
+                    Cours particuliers personnalisés de la 6ème à la Terminale.
+                    À domicile ou en ligne, avec un accompagnement adapté
+                    pour devenir autonome dans votre apprentissage.
+                </p>
+                <div class="flex flex-wrap justify-center lg:justify-start gap-4">
+                    <a href="#" onclick="toggleContactWidget(event)"
+                       class="px-7 py-3.5 bg-accent hover:bg-accent-hover text-white font-semibold rounded-xl
+                              transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl shadow-lg">
+                        <i class="fas fa-envelope mr-2"></i>Me contacter
+                    </a>
+                    <a href="#tarifs"
+                       class="px-7 py-3.5 border-2 border-white/30 hover:border-white/60 text-white font-semibold
+                              rounded-xl transition-all duration-200 hover:-translate-y-0.5">
+                        <i class="fas fa-tag mr-2"></i>Voir les tarifs
+                    </a>
+                </div>
+            </div>
+            <div class="lg:w-1/2 flex justify-center">
+                <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-md drop-shadow-2xl">
+                    <rect x="80" y="30" width="340" height="220" rx="12" fill="#1B2A4A"/>
+                    <rect x="90" y="40" width="320" height="200" rx="8" fill="#243656"/>
+                    <text x="130" y="90" fill="#6EA8FE" font-family="Inter" font-size="22" font-weight="600">f(x) = ax² + bx + c</text>
+                    <text x="150" y="130" fill="#A8D4FE" font-family="Inter" font-size="18">Δ = b² − 4ac</text>
+                    <text x="170" y="170" fill="#6EA8FE" font-family="Inter" font-size="16">∫ x² dx = x³/3 + C</text>
+                    <text x="140" y="210" fill="#A8D4FE" font-family="Inter" font-size="18">sin²θ + cos²θ = 1</text>
+                    <rect x="230" y="250" width="40" height="80" rx="4" fill="#1B2A4A"/>
+                    <rect x="180" y="320" width="140" height="12" rx="6" fill="#1B2A4A"/>
+                    <rect x="50" y="310" width="80" height="60" rx="4" fill="#4A90D9" transform="rotate(-5 90 340)"/>
+                    <rect x="55" y="305" width="80" height="60" rx="4" fill="#6EA8FE" transform="rotate(-8 95 335)"/>
+                    <rect x="370" y="300" width="60" height="80" rx="8" fill="#2D4A7A"/>
+                    <rect x="378" y="308" width="44" height="20" rx="3" fill="#4A90D9"/>
+                    <circle cx="385" cy="340" r="4" fill="#6EA8FE"/>
+                    <circle cx="400" cy="340" r="4" fill="#6EA8FE"/>
+                    <circle cx="415" cy="340" r="4" fill="#6EA8FE"/>
+                    <circle cx="385" cy="358" r="4" fill="#6EA8FE"/>
+                    <circle cx="400" cy="358" r="4" fill="#6EA8FE"/>
+                    <circle cx="415" cy="358" r="4" fill="#6EA8FE"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="a-propos" class="py-20 bg-surface scroll-mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="flex flex-col lg:flex-row items-center gap-14">
+            <div class="lg:w-5/12 flex justify-center">
+                <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-xs">
+                    <circle cx="200" cy="200" r="180" fill="#EEF2F7"/>
+                    <circle cx="200" cy="130" r="50" fill="#4A90D9"/>
+                    <ellipse cx="200" cy="280" rx="80" ry="90" fill="#4A90D9"/>
+                    <rect x="160" y="230" width="35" height="50" rx="3" fill="#FFFFFF" transform="rotate(-15 177 255)"/>
+                    <rect x="205" y="230" width="35" height="50" rx="3" fill="#F0F4F8" transform="rotate(15 222 255)"/>
+                    <text x="80" y="100" fill="#6EA8FE" font-family="Inter" font-size="28" font-weight="700">π</text>
+                    <text x="300" y="90" fill="#4A90D9" font-family="Inter" font-size="24" font-weight="700">∑</text>
+                    <text x="70" y="250" fill="#4A90D9" font-family="Inter" font-size="22" font-weight="700">∞</text>
+                    <text x="310" y="240" fill="#6EA8FE" font-family="Inter" font-size="26" font-weight="700">Δ</text>
+                    <text x="120" y="180" fill="#A8D4FE" font-family="Inter" font-size="20" font-weight="600">√</text>
+                    <text x="280" y="170" fill="#A8D4FE" font-family="Inter" font-size="22" font-weight="600">∫</text>
+                    <circle cx="185" cy="125" r="10" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+                    <circle cx="215" cy="125" r="10" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+                    <line x1="195" y1="125" x2="205" y2="125" stroke="#FFFFFF" stroke-width="3"/>
+                    <path d="M 188 142 Q 200 152 212 142" fill="none" stroke="#FFFFFF" stroke-width="2.5"/>
+                </svg>
+            </div>
+
+            <div class="lg:w-7/12">
+                <span class="inline-block bg-accent-light text-accent text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+                    <i class="fas fa-user mr-1"></i> À propos
+                </span>
+                <h2 class="text-3xl font-bold text-primary mb-5">Qui suis-je ?</h2>
+                <p class="text-lg text-gray-600 mb-4 leading-relaxed">
+                    Je m'appelle Zaccarie, étudiant et déjà titulaire d'une
+                    <strong class="text-primary">licence en mathématiques</strong>.
+                </p>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    Passionné par les mathématiques et la transmission du savoir,
+                    je propose des cours particuliers pour les collégiens et lycéens,
+                    de la 6ème à la Terminale. Mon approche est simple : je m'adapte
+                    à chaque élève, à son rythme et à ses besoins spécifiques.
+                </p>
+                <p class="text-gray-600 leading-relaxed mb-6">
+                    Mon objectif principal est de rendre chaque élève
+                    <strong class="text-primary">indépendant dans sa manière de travailler et d'apprendre
+                    les mathématiques</strong>. Je ne me contente pas de donner des
+                    réponses : je transmets des méthodes, des réflexes et une
+                    confiance qui permettent à l'élève de progresser durablement,
+                    même en dehors des cours.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="reveal flex items-center gap-3 bg-white p-4 rounded-xl hover:shadow-sm hover:translate-x-1 transition-all duration-200">
+                        <i class="fas fa-user-graduate text-accent text-xl"></i>
+                        <div>
+                            <strong class="text-sm text-primary">Licence en Mathématiques</strong><br>
+                            <span class="text-xs text-gray-400">Formation universitaire solide</span>
+                        </div>
+                    </div>
+                    <div class="reveal flex items-center gap-3 bg-white p-4 rounded-xl hover:shadow-sm hover:translate-x-1 transition-all duration-200">
+                        <i class="fas fa-puzzle-piece text-accent text-xl"></i>
+                        <div>
+                            <strong class="text-sm text-primary">Approche personnalisée</strong><br>
+                            <span class="text-xs text-gray-400">Adapté à chaque élève</span>
+                        </div>
+                    </div>
+                    <div class="reveal flex items-center gap-3 bg-white p-4 rounded-xl hover:shadow-sm hover:translate-x-1 transition-all duration-200">
+                        <i class="fas fa-rocket text-accent text-xl"></i>
+                        <div>
+                            <strong class="text-sm text-primary">Objectif : autonomie</strong><br>
+                            <span class="text-xs text-gray-400">Apprendre à apprendre</span>
+                        </div>
+                    </div>
+                    <div class="reveal flex items-center gap-3 bg-white p-4 rounded-xl hover:shadow-sm hover:translate-x-1 transition-all duration-200">
+                        <i class="fas fa-laptop-house text-accent text-xl"></i>
+                        <div>
+                            <strong class="text-sm text-primary">Domicile & en ligne</strong><br>
+                            <span class="text-xs text-gray-400">Flexibilité totale</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-14">
+            <h2 class="text-3xl font-bold text-primary mb-3">Pourquoi choisir mes cours ?</h2>
+            <p class="text-gray-500 text-lg">Un accompagnement sur-mesure pour chaque élève</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="reveal bg-white p-10 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
+                <div class="w-16 h-16 bg-accent-light text-accent rounded-full flex items-center justify-center text-2xl mb-5 mx-auto">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h5 class="text-lg font-bold text-primary text-center mb-3">Tous niveaux</h5>
+                <p class="text-gray-500 text-center">
+                    Du collège (6ème) au lycée (Terminale),
+                    j'accompagne chaque élève quel que soit son niveau de départ.
+                </p>
+            </div>
+            <div class="reveal bg-white p-10 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
+                <div class="w-16 h-16 bg-accent-light text-accent rounded-full flex items-center justify-center text-2xl mb-5 mx-auto">
+                    <i class="fas fa-laptop-house"></i>
+                </div>
+                <h5 class="text-lg font-bold text-primary text-center mb-3">À domicile ou en ligne</h5>
+                <p class="text-gray-500 text-center">
+                    Choisissez le format qui vous convient :
+                    cours à domicile pour un suivi de proximité,
+                    ou cours en ligne pour plus de flexibilité.
+                </p>
+            </div>
+            <div class="reveal bg-white p-10 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
+                <div class="w-16 h-16 bg-accent-light text-accent rounded-full flex items-center justify-center text-2xl mb-5 mx-auto">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h5 class="text-lg font-bold text-primary text-center mb-3">Objectif : autonomie</h5>
+                <p class="text-gray-500 text-center">
+                    Mon but est de rendre chaque élève
+                    indépendant dans sa manière de travailler
+                    et d'apprendre les mathématiques.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 bg-surface">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <h2 class="text-3xl font-bold text-primary text-center mb-12">Les niveaux accompagnés</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto">
+            <div class="reveal bg-accent-light text-primary font-semibold py-4 px-5 rounded-xl text-center
+                        border-2 border-transparent hover:border-accent hover:-translate-y-1 hover:shadow-sm transition-all duration-200">
+                <i class="fas fa-book-open mr-2"></i>6ème
+            </div>
+            <div class="reveal bg-accent-light text-primary font-semibold py-4 px-5 rounded-xl text-center
+                        border-2 border-transparent hover:border-accent hover:-translate-y-1 hover:shadow-sm transition-all duration-200">
+                <i class="fas fa-book-open mr-2"></i>5ème
+            </div>
+            <div class="reveal bg-accent-light text-primary font-semibold py-4 px-5 rounded-xl text-center
+                        border-2 border-transparent hover:border-accent hover:-translate-y-1 hover:shadow-sm transition-all duration-200">
+                <i class="fas fa-book-open mr-2"></i>4ème
+            </div>
+            <div class="reveal bg-accent-light text-primary font-semibold py-4 px-5 rounded-xl text-center
+                        border-2 border-transparent hover:border-accent hover:-translate-y-1 hover:shadow-sm transition-all duration-200">
+                <i class="fas fa-book-open mr-2"></i>3ème
+            </div>
+            <div class="reveal bg-primary text-white font-semibold py-4 px-5 rounded-xl text-center
+                        border-2 border-transparent hover:border-accent hover:-translate-y-1 hover:shadow-sm transition-all duration-200">
+                <i class="fas fa-graduation-cap mr-2"></i>2nde
+            </div>
+            <div class="reveal bg-primary text-white font-semibold py-4 px-5 rounded-xl text-center
+                        border-2 border-transparent hover:border-accent hover:-translate-y-1 hover:shadow-sm transition-all duration-200">
+                <i class="fas fa-graduation-cap mr-2"></i>1ère
+            </div>
+            <div class="reveal bg-primary text-white font-semibold py-4 px-5 rounded-xl text-center col-span-2 md:col-span-1
+                        border-2 border-transparent hover:border-accent hover:-translate-y-1 hover:shadow-sm transition-all duration-200">
+                <i class="fas fa-graduation-cap mr-2"></i>Terminale
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-14">
+            <h2 class="text-3xl font-bold text-primary mb-3">Ma méthode</h2>
+            <p class="text-gray-500 text-lg">Un accompagnement en 3 étapes vers l'autonomie</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="reveal bg-white p-10 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
+                <div class="w-14 h-14 bg-gradient-to-br from-accent to-primary text-white rounded-full
+                            flex items-center justify-center text-xl font-extrabold mb-5 mx-auto">1</div>
+                <h5 class="text-lg font-bold text-primary mb-3">Diagnostic</h5>
+                <p class="text-gray-500">
+                    J'évalue les forces et les lacunes de l'élève
+                    pour construire un plan d'accompagnement adapté
+                    à ses besoins réels.
+                </p>
+            </div>
+            <div class="reveal bg-white p-10 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
+                <div class="w-14 h-14 bg-gradient-to-br from-accent to-primary text-white rounded-full
+                            flex items-center justify-center text-xl font-extrabold mb-5 mx-auto">2</div>
+                <h5 class="text-lg font-bold text-primary mb-3">Progression</h5>
+                <p class="text-gray-500">
+                    Exercices ciblés, explications claires, et mise en
+                    pratique régulière. Chaque séance avance au rythme
+                    de l'élève.
+                </p>
+            </div>
+            <div class="reveal bg-white p-10 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
+                <div class="w-14 h-14 bg-gradient-to-br from-accent to-primary text-white rounded-full
+                            flex items-center justify-center text-xl font-extrabold mb-5 mx-auto">3</div>
+                <h5 class="text-lg font-bold text-primary mb-3">Autonomie</h5>
+                <p class="text-gray-500">
+                    L'élève acquiert des méthodes de travail solides
+                    et la confiance nécessaire pour réussir seul ses
+                    exercices et ses examens.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="tarifs" class="py-20 bg-surface scroll-mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-14">
+            <span class="inline-block bg-accent-light text-accent text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+                <i class="fas fa-tag mr-1"></i> Tarifs
+            </span>
+            <h2 class="text-3xl font-bold text-primary mb-3">Un tarif unique, transparent et accessible</h2>
+        </div>
+
+        <div class="max-w-lg mx-auto">
+            <div class="relative bg-white border-2 border-accent rounded-2xl p-12 shadow-xl overflow-hidden text-center">
+                <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent to-primary"></div>
+
+                <span class="inline-block bg-accent-light text-accent text-sm font-semibold px-5 py-1.5 rounded-full mb-6">
+                    Tarif unique
+                </span>
+
+                <div class="mb-3">
+                    <span class="text-6xl font-extrabold text-primary">35</span>
+                    <span class="text-2xl font-bold text-accent align-top ml-1">€</span>
+                    <span class="text-lg text-gray-400 font-medium ml-1">/ heure</span>
+                </div>
+
+                <p class="text-gray-500 mb-6">Le même tarif pour tous les niveaux et tous les formats.</p>
+
+                <hr class="border-gray-100 my-6">
+
+                <ul class="space-y-3 text-left mb-8">
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-check-circle text-green-500"></i>
+                        <span>Tous niveaux : 6ème à Terminale</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-check-circle text-green-500"></i>
+                        <span>Cours à domicile</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-check-circle text-green-500"></i>
+                        <span>Cours en ligne</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-check-circle text-green-500"></i>
+                        <span>Accompagnement personnalisé</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-check-circle text-green-500"></i>
+                        <span>Exercices et supports fournis</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-check-circle text-green-500"></i>
+                        <span>Sans engagement</span>
+                    </li>
+                </ul>
+
+                <a href="#" onclick="toggleContactWidget(event)"
+                   class="block w-full py-3.5 bg-accent hover:bg-accent-hover text-white font-semibold rounded-xl
+                          text-center transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg">
+                    <i class="fas fa-envelope mr-2"></i>Me contacter
+                </a>
+            </div>
+        </div>
+
+        <div class="max-w-2xl mx-auto mt-16">
+            <h3 class="text-2xl font-bold text-primary text-center mb-8">Questions fréquentes</h3>
+            <div class="space-y-3" id="faq-accordion">
+                <div class="faq-item border border-gray-100 rounded-xl overflow-hidden bg-white">
+                    <button class="faq-toggle w-full flex items-center justify-between p-5 text-left font-semibold text-primary hover:bg-surface transition-colors"
+                            onclick="toggleFAQ(this)">
+                        <span>Le tarif est-il le même pour le collège et le lycée ?</span>
+                        <i class="fas fa-chevron-down text-accent text-sm transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-5 pb-5 text-gray-600">
+                        Oui, le tarif est de <strong>35 € par heure</strong> quel que soit le niveau
+                        de l'élève, de la 6ème à la Terminale. Pas de surprise.
+                    </div>
+                </div>
+                <div class="faq-item border border-gray-100 rounded-xl overflow-hidden bg-white">
+                    <button class="faq-toggle w-full flex items-center justify-between p-5 text-left font-semibold text-primary hover:bg-surface transition-colors"
+                            onclick="toggleFAQ(this)">
+                        <span>Y a-t-il un supplément pour les cours à domicile ?</span>
+                        <i class="fas fa-chevron-down text-accent text-sm transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-5 pb-5 text-gray-600">
+                        Non, le tarif est identique que le cours ait lieu à domicile ou en ligne.
+                        Vous choisissez le format qui vous convient.
+                    </div>
+                </div>
+                <div class="faq-item border border-gray-100 rounded-xl overflow-hidden bg-white">
+                    <button class="faq-toggle w-full flex items-center justify-between p-5 text-left font-semibold text-primary hover:bg-surface transition-colors"
+                            onclick="toggleFAQ(this)">
+                        <span>Faut-il s'engager sur un nombre minimum de cours ?</span>
+                        <i class="fas fa-chevron-down text-accent text-sm transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-5 pb-5 text-gray-600">
+                        Non, il n'y a aucun engagement. Vous pouvez planifier vos cours au fur et
+                        à mesure, selon vos besoins.
+                    </div>
+                </div>
+                <div class="faq-item border border-gray-100 rounded-xl overflow-hidden bg-white">
+                    <button class="faq-toggle w-full flex items-center justify-between p-5 text-left font-semibold text-primary hover:bg-surface transition-colors"
+                            onclick="toggleFAQ(this)">
+                        <span>Comment se déroule le paiement ?</span>
+                        <i class="fas fa-chevron-down text-accent text-sm transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-5 pb-5 text-gray-600">
+                        Le paiement s'effectue directement à la fin de chaque séance, en espèces
+                        ou par virement. Simple et transparent.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="py-20 bg-gradient-to-r from-accent to-primary">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+        <h2 class="text-3xl font-bold text-white mb-4">Prêt à progresser en maths ?</h2>
+        <p class="text-white/80 text-lg mb-8">Contactez-moi pour organiser votre premier cours.</p>
+        <a href="#" onclick="toggleContactWidget(event)"
+           class="inline-block px-8 py-4 bg-white text-primary font-bold rounded-xl
+                  hover:-translate-y-0.5 hover:shadow-xl transition-all duration-200">
+            <i class="fas fa-envelope mr-2"></i>Me contacter
+        </a>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block contact_widget %}
+<button id="contact-fab" onclick="toggleContactWidget(event)"
+        class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-accent hover:bg-accent-hover text-white rounded-full
+               shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center">
+    <i class="fas fa-envelope text-xl" id="fab-icon"></i>
+</button>
+
+<div id="contact-widget"
+     class="fixed bottom-24 right-6 z-50 w-[360px] max-h-[520px] bg-white rounded-2xl shadow-2xl border border-gray-200
+            transform scale-95 opacity-0 pointer-events-none transition-all duration-300 origin-bottom-right overflow-hidden">
+
+    <div class="bg-gradient-to-r from-primary to-primary-light px-5 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-2 text-white">
+            <i class="fas fa-envelope"></i>
+            <span class="font-semibold text-sm">Me contacter</span>
+        </div>
+        <button onclick="toggleContactWidget(event)" class="text-white/70 hover:text-white transition-colors">
+            <i class="fas fa-xmark text-lg"></i>
+        </button>
+    </div>
+
+    <div class="p-5 overflow-y-auto max-h-[440px]">
+        <form method="POST" action="/contact" novalidate>
+            {{ contact_form.hidden_tag() }}
+
+            <div class="space-y-3">
+                <div>
+                    <label for="contact-name" class="block text-xs font-semibold text-primary mb-1">{{ contact_form.name.label.text }}</label>
+                    {{ contact_form.name(class="w-full px-3 py-2 text-sm border-2 rounded-lg transition-all duration-200 focus:outline-none focus:ring-0 " + ("border-red-300 focus:border-red-400" if contact_form.name.errors else "border-gray-200 focus:border-accent"),
+                       id="contact-name", placeholder="Votre nom") }}
+                    {% for error in contact_form.name.errors %}
+                        <p class="text-red-500 text-xs mt-1">{{ error }}</p>
+                    {% endfor %}
+                </div>
+
+                <div>
+                    <label for="contact-email" class="block text-xs font-semibold text-primary mb-1">{{ contact_form.email.label.text }}</label>
+                    {{ contact_form.email(class="w-full px-3 py-2 text-sm border-2 rounded-lg transition-all duration-200 focus:outline-none focus:ring-0 " + ("border-red-300 focus:border-red-400" if contact_form.email.errors else "border-gray-200 focus:border-accent"),
+                       id="contact-email", placeholder="exemple@email.com") }}
+                    {% for error in contact_form.email.errors %}
+                        <p class="text-red-500 text-xs mt-1">{{ error }}</p>
+                    {% endfor %}
+                </div>
+
+                <div>
+                    <label for="contact-message" class="block text-xs font-semibold text-primary mb-1">{{ contact_form.message.label.text }}</label>
+                    {{ contact_form.message(class="w-full px-3 py-2 text-sm border-2 rounded-lg transition-all duration-200 focus:outline-none focus:ring-0 " + ("border-red-300 focus:border-red-400" if contact_form.message.errors else "border-gray-200 focus:border-accent"),
+                       id="contact-message", rows="4", placeholder="Votre message...") }}
+                    {% for error in contact_form.message.errors %}
+                        <p class="text-red-500 text-xs mt-1">{{ error }}</p>
+                    {% endfor %}
+                </div>
+
+                <button type="submit"
+                        class="w-full py-2.5 bg-accent hover:bg-accent-hover text-white text-sm font-semibold rounded-lg
+                               transition-all duration-200 hover:shadow-md">
+                    <i class="fas fa-paper-plane mr-1"></i>Envoyer
+                </button>
+            </div>
+        </form>
+
+        <p class="text-gray-400 text-[11px] mt-3 text-center">
+            <i class="fas fa-shield-halved mr-1"></i>Vos données restent confidentielles • Réponse sous 24h
+        </p>
+    </div>
+</div>
+{% endblock %}

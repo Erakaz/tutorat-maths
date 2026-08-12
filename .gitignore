@@ -1,0 +1,30 @@
+# Fichiers sensibles
+.env
+
+# Base de données locale
+instance/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Environnement virtuel
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+.claude/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
